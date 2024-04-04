@@ -14,7 +14,7 @@ spec:
         name: bitnami
         namespace: cluster-config
       version: "17.x"
-  interval: 1h0m0s
+  interval: 5m
   install:
     remediation:
       retries: 3
