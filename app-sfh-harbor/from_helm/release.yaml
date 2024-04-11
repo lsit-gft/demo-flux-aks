@@ -24,4 +24,4 @@ spec:
     service:
       type: NodePort
     imagePullSecrets:
-      name: registry.harbor.smartfactoryhost
+      - name: registry.harbor.smartfactoryhost
