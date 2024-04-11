@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: demo-helm-harbor
+spec:
+  targetNamespace: demo-helm-harbor
+  releaseName: demo-flux
+  chart:
+    spec:
+      chart: demo-flux
+      sourceRef:
+        kind: HelmRepository
+        name: demo-helm-harbor
+        namespace: demo-helm-harbor
+      version: "0.1.0"
+  interval: 5m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+    imagePullSecrets:
+      name: registry.harbor.smartfactoryhost

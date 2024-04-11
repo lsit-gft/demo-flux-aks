@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: sfn-test-app
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: mi-repositorio-github
+    namespace: flux-system
+  path: ./overlays/mi-aplicacion
+  prune: true
