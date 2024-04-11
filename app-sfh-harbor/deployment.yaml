@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sfn-test-app
+  namespace: demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sfn-test-app
+  template:
+    metadata:
+      labels:
+        app: sfn-test-app
+    spec:
+      containers:
+      - name: sfn-test-app
+        image: core.harbor.smartfactoryhost.com/bizarre-apricot-bear-57/sfn-test-app:1.0.0
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+      - name: registry.harbor.smartfactoryhost
