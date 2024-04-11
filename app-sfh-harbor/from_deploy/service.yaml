@@ -4,6 +4,7 @@ metadata:
   name: sfn-test-app
   namespace: demo
 spec:
+  type: NodePort
   selector:
     app: sfn-test-app
   ports:
